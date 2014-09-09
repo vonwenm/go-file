@@ -87,6 +87,8 @@ func NewFileWatcher(path string, cb func(string, io.ReadCloser)) (
 		path:    path,
 	}
 
+	go ret.watchForChanges()
+
 	return ret, nil
 }
 
